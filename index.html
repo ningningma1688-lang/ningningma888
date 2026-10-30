@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ningning Ma 马宁宁 | Sociology, Peking University</title>
+<meta name="description" content="Ningning Ma (马宁宁), Ph.D. student in Sociology at Peking University. 北京大学社会学系博士研究生。">
+<script>
+  /* Pick language before first paint: ?lang=zh / ?lang=en, else browser language */
+  (function(){
+    var p = new URLSearchParams(location.search).get('lang');
+    var zh = p ? p === 'zh' : (navigator.language || '').toLowerCase().indexOf('zh') === 0;
+    if (zh) { document.documentElement.classList.add('is-zh'); document.documentElement.lang = 'zh-CN'; }
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F2F4F3;
+  --ink:#1B2433;
+  --muted:#5A6576;
+  --rule:#D5DAD8;
+  --accent:#8C1C2B;   /* Peking University red, used sparingly */
+  --serif:"Source Serif 4", "Noto Serif SC", Georgia, "Songti SC", "SimSun", serif;
+  --cjk:"Noto Serif SC", "Songti SC", "SimSun", serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --paper:#141A22;
+    --ink:#E6E9EE;
+    --muted:#9AA5B4;
+    --rule:#2E3946;
+    --accent:#E0707E;
+    color-scheme: dark;
+  }
+}
+/* Language switching */
+html:not(.is-zh) .zh, html.is-zh .en{display:none !important}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--serif);font-size:1.0625rem;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+html.is-zh body{line-height:1.85;letter-spacing:.01em}
+a{color:inherit;text-decoration-color:var(--accent);text-underline-offset:3px}
+a:hover{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+.layout{display:grid;grid-template-columns:minmax(260px,320px) 1fr;min-height:100vh}
+
+/* Sidebar */
+.side{
+  position:sticky;top:0;height:100vh;
+  display:flex;gap:1.75rem;padding:3rem 2rem 2rem 2.5rem;
+  border-right:1px solid var(--rule);
+}
+.seal{
+  writing-mode:vertical-rl;font-family:var(--cjk);font-weight:700;
+  font-size:4.25rem;line-height:1;letter-spacing:.12em;color:var(--accent);
+  margin:0;user-select:none;
+}
+.side-body{display:flex;flex-direction:column;min-width:0}
+.name{font-size:1.75rem;font-weight:600;line-height:1.15;margin:0 0 .5rem}
+html.is-zh .name{font-family:var(--cjk)}
+.role{color:var(--muted);margin:0 0 1.25rem;font-size:.98rem;line-height:1.5}
+.lang-toggle{
+  align-self:flex-start;margin:0 0 1.75rem;padding:.3rem .85rem;
+  font:inherit;font-size:.92rem;color:var(--ink);background:transparent;
+  border:1px solid var(--rule);border-radius:999px;cursor:pointer;
+}
+.lang-toggle:hover{border-color:var(--accent);color:var(--accent)}
+nav ul{list-style:none;margin:0;padding:0}
+nav li{margin:.2rem 0}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+.contact{margin-top:auto;font-size:.92rem;color:var(--muted)}
+.contact p{margin:.25rem 0}
+
+/* Main */
+main{padding:3.5rem clamp(1.5rem,5vw,5rem) 5rem;max-width:56rem}
+section{padding-top:1rem;margin-bottom:3.5rem}
+h2{
+  font-size:1.35rem;font-weight:600;margin:0 0 1.25rem;padding-bottom:.5rem;
+  border-bottom:1px solid var(--rule);
+}
+.intro p{font-size:1.2rem;line-height:1.6;max-width:38em;margin:0 0 1rem}
+html.is-zh .intro p{font-size:1.12rem;line-height:1.9}
+
+/* Dated entries */
+.entry{display:grid;grid-template-columns:9.5rem 1fr;gap:0 1.5rem;margin-bottom:1.6rem}
+.when{color:var(--muted);font-size:.92rem;padding-top:.15rem;font-variant-numeric:tabular-nums}
+.what h3{font-size:1.05rem;font-weight:600;margin:0}
+.what .org{margin:0;color:var(--muted)}
+.what ul{margin:.5rem 0 0;padding-left:1.1rem}
+.what li{margin:.25rem 0;max-width:40em}
+
+/* Publications */
+.pubs{list-style:none;margin:0;padding:0}
+.pubs li{margin:0 0 1.15rem;padding-left:1.25rem;border-left:2px solid var(--rule);max-width:42em}
+.pubs li.featured{border-left-color:var(--accent)}
+.status{color:var(--muted);font-size:.92rem}
+
+.plain{list-style:none;margin:0;padding:0}
+.plain li{margin:0 0 .9rem;max-width:42em}
+.meta{color:var(--muted);font-size:.92rem;display:block}
+
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1.5rem 2.5rem}
+.cols h3{font-size:1rem;font-weight:600;margin:0 0 .35rem}
+.cols p{margin:0;color:var(--muted)}
+
+footer{color:var(--muted);font-size:.88rem;border-top:1px solid var(--rule);padding-top:1.25rem}
+
+/* Mobile */
+@media (max-width:820px){
+  .layout{grid-template-columns:1fr}
+  .side{position:static;height:auto;border-right:none;border-bottom:1px solid var(--rule);padding:2rem 1.5rem}
+  .seal{font-size:3rem}
+  nav ul{display:flex;flex-wrap:wrap;gap:.25rem 1rem}
+  .contact{margin-top:1.5rem}
+  main{padding:2.5rem 1.5rem 4rem}
+  .entry{grid-template-columns:1fr}
+  .when{padding:0 0 .2rem}
+}
+@media print{
+  .layout{display:block}.side{position:static;height:auto;border:none}
+  nav,.lang-toggle{display:none}a{text-decoration:none}
+}
+</style>
+</head>
+<body>
+<div class="layout">
+
+  <aside class="side">
+    <p class="seal" aria-hidden="true">马宁宁</p>
+    <div class="side-body">
+      <h1 class="name"><span class="en">Ningning Ma</span><span class="zh">马宁宁</span></h1>
+      <p class="role">
+        <span class="en">Ph.D. student in Sociology<br>Peking University, Beijing</span>
+        <span class="zh">北京大学社会学系<br>博士研究生</span>
+      </p>
+      <button type="button" class="lang-toggle" id="lang-toggle">
+        <span class="en" lang="zh-CN">中文</span><span class="zh" lang="en">English</span>
+      </button>
+      <nav aria-label="Sections">
+        <ul>
+          <li><a href="#about"><span class="en">About</span><span class="zh">简介</span></a></li>
+          <li><a href="#publications"><span class="en">Publications</span><span class="zh">发表成果</span></a></li>
+          <li><a href="#education"><span class="en">Education</span><span class="zh">教育背景</span></a></li>
+          <li><a href="#research"><span class="en">Research</span><span class="zh">研究经历</span></a></li>
+          <li><a href="#teaching"><span class="en">Teaching &amp; practice</span><span class="zh">教学与实践</span></a></li>
+          <li><a href="#presentations"><span class="en">Presentations</span><span class="zh">会议报告</span></a></li>
+          <li><a href="#honors"><span class="en">Honors</span><span class="zh">荣誉奖项</span></a></li>
+          <li><a href="#media"><span class="en">Media</span><span class="zh">媒体报道</span></a></li>
+          <li><a href="#beyond"><span class="en">Beyond research</span><span class="zh">研究之外</span></a></li>
+        </ul>
+      </nav>
+      <div class="contact">
+        <p><a href="mailto:ningningma@gse.harvard.edu">ningningma@gse.harvard.edu</a></p>
+        <!-- Replace # with your LinkedIn profile URL -->
+        <p><a href="#">LinkedIn</a></p>
+        <!-- Optional: add cv.pdf to the repo and uncomment -->
+        <!-- <p><a href="cv.pdf"><span class="en">CV (PDF)</span><span class="zh">简历（PDF）</span></a></p> -->
+      </div>
+    </div>
+  </aside>
+
+  <main>
+
+    <!-- ============ About ============ -->
+    <section id="about" class="intro">
+      <h2><span class="en">About</span><span class="zh">简介</span></h2>
+      <div class="en">
+        <p>I am a Ph.D. student in Sociology at Peking University. My research uses a Bourdieusian lens to study credentialization, symbolic capital, and elite consumption in Chinese and transnational contexts, with a long-standing interest in gender and educational inequality.</p>
+        <p>My dissertation examines China’s comprehensive quality evaluation reform in high schools (综合素质评价) and how it reshapes educational inequality, drawing on fieldwork in three high schools in Guangzhou.</p>
+        <p>Before Peking University, I earned an Ed.M. in Education Policy and Analysis from Harvard and a B.A. in Gender Studies from UCLA, and taught in rural schools in Guizhou and Gansu.</p>
+      </div>
+      <div class="zh">
+        <p>我是北京大学社会学系博士研究生。我的研究借助布迪厄的理论视角，关注中国及跨国情境中的文凭化、象征资本与精英消费，并长期关注性别与教育不平等。</p>
+        <p>我的博士论文研究高中综合素质评价改革及其与教育不平等的关系，田野工作在广州的三所高中开展。</p>
+        <p>来到北大之前，我在哈佛大学教育研究生院获得教育政策与分析硕士学位（Ed.M.），在加州大学洛杉矶分校获得性别研究学士学位，并曾在贵州和甘肃的乡村学校任教。</p>
+      </div>
+    </section>
+
+    <!-- ============ Publications ============ -->
+    <section id="publications">
+      <h2><span class="en">Publications</span><span class="zh">发表成果</span></h2>
+      <ul class="pubs">
+        <li class="featured">
+          Ma, N. (2026). Producing legible excellence: Narrative certification in an elite Chinese university’s scholarship defence. <em>Higher Education</em>.
+          <a href="https://doi.org/10.1007/s10734-026-01760-9">doi:10.1007/s10734-026-01760-9</a>
+        </li>
+        <li class="featured">
+          Ma, N. (2025). Breaking barriers: Gender equality and educational empowerment in rural China. <em>Asian Women</em>, 41(4), 155–170.
+          <a href="https://doi.org/10.64446/aw.2025.12.41.4.155">doi:10.64446/aw.2025.12.41.4.155</a>
+        </li>
+        <li>
+          Ma, N. (2019). The current situation of migrant children’s education and how to better provide vocational education for them. <em>Social Sciences</em>, Chinese Social Sciences Full-text Database (CSSFD).
+          <a href="https://xueshu.baidu.com/ndscholar/browse/detail?paperid=1n3f02e0rm6q02e0vr0h0a50qc324583"><span class="en">Link</span><span class="zh">链接</span></a>
+        </li>
+        <li>
+          Ma, N. Reflexive eldercare: Educated only daughters and intergenerational responsibility in post–One-Child-Policy China.
+          <span class="status"><span class="en">Manuscript under review, </span><span class="zh">审稿中，</span><em>Journal of Family Studies</em>.</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ============ Education ============ -->
+    <section id="education">
+      <h2><span class="en">Education</span><span class="zh">教育背景</span></h2>
+      <div class="entry">
+        <div class="when"><span class="en">2026 – present</span><span class="zh">2026 年至今</span></div>
+        <div class="what">
+          <h3><span class="en">Ph.D. in Sociology</span><span class="zh">社会学博士</span></h3>
+          <p class="org"><span class="en">Peking University, Beijing</span><span class="zh">北京大学</span></p>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="when">2025 – 2026</div>
+        <div class="what">
+          <h3><span class="en">Ed.M. in Education Policy and Analysis</span><span class="zh">教育政策与分析硕士（Ed.M.）</span></h3>
+          <p class="org"><span class="en">Harvard Graduate School of Education, Cambridge, MA</span><span class="zh">哈佛大学教育研究生院</span></p>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="when">2022 – 2024</div>
+        <div class="what">
+          <h3><span class="en">B.A. in Gender Studies</span><span class="zh">性别研究学士</span></h3>
+          <p class="org"><span class="en">University of California, Los Angeles</span><span class="zh">加州大学洛杉矶分校（UCLA）</span></p>
+          <ul>
+            <li class="en">GPA 3.74. Coursework in feminist theory, gender and power, media and inequality, and transfeminism in the Americas.</li>
+            <li class="zh">GPA 3.74。主要课程：女性主义理论、性别与权力、媒介与不平等、美洲跨性别女性主义。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Research ============ -->
+    <section id="research">
+      <h2><span class="en">Research experience</span><span class="zh">研究经历</span></h2>
+      <div class="entry">
+        <div class="when">2025 – 2026</div>
+        <div class="what">
+          <h3><span class="en">Independent ethnographic researcher</span><span class="zh">独立民族志研究者</span></h3>
+          <p class="org"><span class="en">Harvard Graduate School of Education, supervised by Prof. Gabrielle Oliveira</span><span class="zh">哈佛大学教育研究生院，指导教师 Gabrielle Oliveira 教授</span></p>
+          <ul>
+            <li class="en">Interviewed 20 educated only daughters in post–One-Child-Policy China on how educational and transnational experiences reshape expectations of eldercare.</li>
+            <li class="en">Identified a pattern of “reflexive eldercare,” in which daughters reinterpret responsible care for aging parents beyond obedience-based models.</li>
+            <li class="zh">访谈 20 位独生子女政策时代成长、受过高等教育的独生女，探讨教育与跨国经历如何重塑她们对养老责任的期待。</li>
+            <li class="zh">提炼出“反思性养老”模式：女儿们超越以顺从为核心的传统模式，重新诠释何为对年迈父母负责任的照料。</li>
+          </ul>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="when">2025 – 2026</div>
+        <div class="what">
+          <h3><span class="en">Research assistant, Project Zero</span><span class="zh">研究助理，零点项目（Project Zero）</span></h3>
+          <p class="org"><span class="en">Harvard Graduate School of Education. </span><span class="zh">哈佛大学教育研究生院，</span><em>LET’S TALK! Fostering Intercultural Dialogue Dispositions for a World on the Move</em></p>
+          <ul>
+            <li class="en">Contributed to the Intercultural Dialogue Dispositions Framework led by Dr. Verónica Boix-Mansilla, with gender and migration as analytical lenses.</li>
+            <li class="en">Wrote systematic literature reviews and analytical memos on how women’s migration narratives shape empathy, recognition, and belonging.</li>
+            <li class="en">Designed reflective dialogue routines drawing on feminist and intercultural dialogue theory.</li>
+            <li class="zh">参与 Verónica Boix-Mansilla 博士主持的“跨文化对话素养框架”建设，以性别与迁移为分析视角。</li>
+            <li class="zh">撰写系统性文献综述与分析备忘录，考察女性迁移叙事如何塑造共情、承认与归属感。</li>
+            <li class="zh">结合女性主义与跨文化对话理论，设计反思性对话活动。</li>
+          </ul>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="when"><span class="en">Mar – Jul 2024</span><span class="zh">2024 年 3 月 – 7 月</span></div>
+        <div class="what">
+          <h3><span class="en">Independent researcher</span><span class="zh">独立研究者</span></h3>
+          <p class="org"><span class="en">UCLA, supervised by Prof. Sylvia Hurtado</span><span class="zh">加州大学洛杉矶分校，指导教师 Sylvia Hurtado 教授</span></p>
+          <ul>
+            <li class="en">Conducted life-history interviews on how higher education transforms rural women’s gender roles and family negotiations.</li>
+            <li class="en">Built a comparative framework explaining variation in women’s autonomy and intergenerational expectations, later used by local NGOs to design access programs.</li>
+            <li class="zh">通过生命史访谈，研究高等教育如何改变农村女性的性别角色与家庭协商。</li>
+            <li class="zh">构建比较框架，解释女性自主性与代际期待的差异；该框架后被地方公益组织用于设计扩大农村女性升学机会的项目。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Teaching & practice ============ -->
+    <section id="teaching">
+      <h2><span class="en">Teaching &amp; practice</span><span class="zh">教学与实践</span></h2>
+      <div class="entry">
+        <div class="when">2024 – 2025</div>
+        <div class="what">
+          <h3><span class="en">English teacher</span><span class="zh">英语教师</span></h3>
+          <p class="org"><span class="en">Chishui Lianghekou School, Guizhou</span><span class="zh">贵州赤水两河口学校</span></p>
+          <ul>
+            <li class="en">Taught with student-centered, culturally responsive pedagogy and conducted 20+ home visits on how economic pressure and local governance shape aspirations.</li>
+            <li class="en">Created a career exploration curriculum, scaled through teacher-training workshops to 10 schools and about 5,000 elementary students.</li>
+            <li class="zh">采用以学生为中心、回应文化背景的教学方法，开展 20 余次家访，了解经济压力与地方治理如何影响学生的教育期望。</li>
+            <li class="zh">设计生涯探索课程，并通过教师培训推广至 10 所学校，覆盖约 5,000 名小学生。</li>
+          </ul>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="when">2023</div>
+        <div class="what">
+          <h3><span class="en">English teacher</span><span class="zh">英语教师</span></h3>
+          <p class="org"><span class="en">New Oriental Education &amp; Technology Group, Beijing</span><span class="zh">新东方教育科技集团，北京</span></p>
+          <ul>
+            <li class="en">Taught international exam preparation using diagnostic assessment, formative feedback, and adaptive materials.</li>
+            <li class="zh">讲授国际考试备考课程，运用诊断性评估、形成性反馈与自适应教学材料。</li>
+          </ul>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="when">2025 – 2026</div>
+        <div class="what">
+          <h3><span class="en">Content editor</span><span class="zh">内容编辑</span></h3>
+          <p class="org">EdHyve<span class="en">, Cambridge, MA</span></p>
+          <ul>
+            <li class="en">Wrote articles and stories about college advising for students and families, adapted for blog and LinkedIn.</li>
+            <li class="zh">为学生和家庭撰写升学咨询相关文章与真实故事，并改编用于博客与 LinkedIn。</li>
+          </ul>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="when">2017 – 2020</div>
+        <div class="what">
+          <h3><span class="en">Co-founder, Future Dream Career Experience Education Program</span><span class="zh">联合创始人，“未来梦想职业体验教育计划”</span></h3>
+          <p class="org"><span class="en">Empower Women, Hainan</span><span class="zh">Empower Women，海南</span></p>
+          <ul>
+            <li class="en">Ran career experience courses for 300 rural girls and an educational trip for 55 girls to the Boao Lecheng pilot zone.</li>
+            <li class="en">Led a leadership camp for female college students that drew 1,300+ applications in one week and reached 10,000 students.</li>
+            <li class="zh">为 300 名农村女孩开设职业体验课程，并带领 55 名女孩赴博鳌乐城国际医疗旅游先行区开展研学。</li>
+            <li class="zh">主办女大学生领导力训练营，一周内收到 1,300 余份报名，影响 1 万名女大学生。</li>
+          </ul>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="when">2018 – 2020</div>
+        <div class="what">
+          <h3><span class="en">Promoter</span><span class="zh">推广专员</span></h3>
+          <p class="org"><span class="en">Chinese Education Improving Institution (remote)</span><span class="zh">Chinese Education Improving Institution（远程）</span></p>
+          <ul>
+            <li class="en">Supported 2,000 mothers in early childhood education and analyzed 1,000 user experiences to improve program delivery.</li>
+            <li class="en">Third Prize (10 of 248), National Dialogue China Social Entrepreneurship Competition, UNDP, 2019.</li>
+            <li class="zh">为 2,000 位母亲提供 0–3 岁早期教育指导，分析 1,000 份用户反馈以改进项目。</li>
+            <li class="zh">获联合国开发计划署“对话中国”社会创业大赛三等奖（10/248），2019 年。</li>
+          </ul>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="when">2017 – 2018</div>
+        <div class="what">
+          <h3><span class="en">Project intern</span><span class="zh">项目实习生</span></h3>
+          <p class="org"><span class="en">Guangzhou Livable Environment Protection Center</span><span class="zh">宜居广州生态环境保护中心</span></p>
+          <ul>
+            <li class="en">Led data collection for a microplastics investigation and wrote a policy report, backed by 500 citizens and 5 NGOs, submitted to the Guangzhou Municipal Government.</li>
+            <li class="zh">负责微塑料调查的数据收集与分析，撰写政策报告，获 500 名市民和 5 家公益组织支持，提交广州市政府。</li>
+          </ul>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="when">2018</div>
+        <div class="what">
+          <h3><span class="en">English teacher</span><span class="zh">英语支教教师</span></h3>
+          <p class="org"><span class="en">Gansu Rural Teaching Program</span><span class="zh">甘肃乡村支教项目</span></p>
+          <ul>
+            <li class="en">Taught 32 fifth- and sixth-graders through guided reading and role-play; by the end, 15 could introduce themselves confidently in English.</li>
+            <li class="zh">为 32 名五、六年级学生授课，通过引导阅读与角色扮演教学，课程结束时 15 名学生能自信地用英语自我介绍。</li>
+          </ul>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="when"><span class="en">2016 – present</span><span class="zh">2016 年至今</span></div>
+        <div class="what">
+          <h3><span class="en">Writer and creator</span><span class="zh">写作者与自媒体创作者</span></h3>
+          <p class="org"><span class="en">WeChat, Channels, Douyin</span><span class="zh">微信公众号、视频号、抖音</span></p>
+          <ul>
+            <li class="en">Publishes on gender equality and education, with 16 million+ views and 75,000+ followers. Also volunteer life coach for 50+ people (150+ hours).</li>
+            <li class="en">Earlier editorial work: HaLaGeFo WeChat account (2020–2022) and freelance editing on the bestseller <em>The Underlying Logic</em> (2021).</li>
+            <li class="zh">发布性别平等与教育主题内容，累计 1,600 万+ 浏览、7.5 万+ 关注者；担任志愿生涯教练，服务 50 余人（150+ 小时）。</li>
+            <li class="zh">早期编辑工作：“HaLaGeFo”公众号（2020–2022）；参与畅销书《底层逻辑》的编辑（2021）。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Presentations ============ -->
+    <section id="presentations">
+      <h2><span class="en">Conference presentations</span><span class="zh">会议报告</span></h2>
+      <ul class="plain">
+        <li>Breaking barriers: Gender equality and educational empowerment in rural China.
+          <span class="meta"><span class="en">70th Annual Meeting of the Comparative and International Education Society (CIES), San Francisco, March 2026</span><span class="zh">第 70 届比较与国际教育学会（CIES）年会，旧金山，2026 年 3 月</span></span></li>
+        <li>Educational opportunities for migrant children: A case study in Guangzhou, China.
+          <span class="meta"><a href="https://isscy.com/web/viewer.php?id=669"><span class="en">International Social Science Conference for Youth (ISSCY)</span><span class="zh">国际青年社会科学大会（ISSCY）</span></a><span class="en">, September 2019</span><span class="zh">，2019 年 9 月</span></span></li>
+      </ul>
+    </section>
+
+    <!-- ============ Honors ============ -->
+    <section id="honors">
+      <h2><span class="en">Honors and awards</span><span class="zh">荣誉奖项</span></h2>
+      <ul class="plain">
+        <li><span class="en">Fourth place, Women’s Skim Amateur, IWWF Wakesurf World Cup</span><span class="zh">IWWF 尾波冲浪世界杯 女子 Skim 业余组 第四名</span>
+          <span class="meta"><span class="en">Haikou, 2024</span><span class="zh">海口，2024</span></span></li>
+        <li><span class="en">Third place, Women’s Physique, WNBF China Open International Championships</span><span class="zh">WNBF 中国公开赛国际锦标赛 女子形体组 第三名</span>
+          <span class="meta">2023</span></li>
+        <li><span class="en">Superior Award (2 of 25), National Youth Observation Competition, Journalism Education Association</span><span class="zh">美国新闻教育协会全美青年观察大赛 优异奖（2/25）</span>
+          <span class="meta"><span class="en">USA, 2019</span><span class="zh">美国，2019</span></span></li>
+        <li><span class="en">Top 3 (3 of 116), China Female University Students’ Innovation and Entrepreneurship Competition</span><span class="zh">中国女大学生创新创业大赛 前三名（3/116）</span>
+          <span class="meta"><span class="en">Beijing Women’s Federation and China Women’s Development Foundation, 2019</span><span class="zh">北京市妇女联合会、中国妇女发展基金会，2019</span></span></li>
+        <li><span class="en">Third Prize (10 of 248), National Dialogue China Social Entrepreneurship Competition</span><span class="zh">“对话中国”社会创业大赛 三等奖（10/248）</span>
+          <span class="meta"><span class="en">UNDP, 2019</span><span class="zh">联合国开发计划署，2019</span></span></li>
+      </ul>
+    </section>
+
+    <!-- ============ Media ============ -->
+    <section id="media">
+      <h2><span class="en">Media</span><span class="zh">媒体报道</span></h2>
+      <ul class="plain">
+        <li><a href="https://hgseadmissions.wordpress.com/2025/10/27/a-community-that-is-eager-to-learn-four-perspectives-from-the-education-policy-analysis-epa-program/">A community that is eager to learn: Four perspectives from the EPA program</a>
+          <span class="meta"><span class="en">Harvard Graduate School of Education Admissions Blog, 2025</span><span class="zh">哈佛大学教育研究生院招生博客，2025</span></span></li>
+        <li><a href="https://life.china.com/2025-10/30/content_503337.html"><span class="en">Harvard Taekwondo Team athlete Ma Ningning competes in the Eastern Collegiate Taekwondo Conference</span><span class="zh">哈佛跆拳道队队员马宁宁出战美国东部大学生跆拳道联赛</span></a>
+          <span class="meta"><span class="en">China.com, 2025</span><span class="zh">中华网，2025</span></span></li>
+        <li><a href="http://www.fjdnzx.com/zixun/113695.html"><span class="en">Ma Ningning wins third place in longboard at the 63rd East Coast Surfing Championships</span><span class="zh">马宁宁获第 63 届美国东海岸冲浪锦标赛长板组第三名</span></a>
+          <span class="meta"><span class="en">Southeast Online, 2024</span><span class="zh">东南网，2024</span></span></li>
+        <li><a href="http://www.peopledailynews.eu/zgxw/20190701_59410.html"><span class="en">How can children choose competitive careers in the age of AI?</span><span class="zh">人工智能时代，孩子如何选择有竞争力的职业？</span></a>
+          <span class="meta">People’s Daily Europe, 2019</span></li>
+      </ul>
+    </section>
+
+    <!-- ============ Beyond research ============ -->
+    <section id="beyond">
+      <h2><span class="en">Beyond research</span><span class="zh">研究之外</span></h2>
+      <div class="cols">
+        <div>
+          <h3><span class="en">Methods and tools</span><span class="zh">方法与工具</span></h3>
+          <p class="en">Ethnography, interviews, policy and comparative analysis, quantitative methods. R, Stata, Python, SPSS, NVivo.</p>
+          <p class="zh">民族志、深度访谈、政策与比较分析、定量方法。R、Stata、Python、SPSS、NVivo。</p>
+        </div>
+        <div>
+          <h3><span class="en">Languages</span><span class="zh">语言</span></h3>
+          <p class="en">Mandarin (native), English (fluent), Korean (basic).</p>
+          <p class="zh">普通话（母语）、英语（流利）、韩语（基础）。</p>
+        </div>
+        <div>
+          <h3><span class="en">Sport</span><span class="zh">运动</span></h3>
+          <p class="en">Certified golf, tennis and ski coach. Taekwondo black belt, ASA 101 sailing, AIDA 2 freediving.</p>
+          <p class="zh">高尔夫、网球、滑雪认证教练；跆拳道黑带；ASA 101 帆船；AIDA 2 自由潜。</p>
+        </div>
+        <div>
+          <h3><span class="en">Music and dance</span><span class="zh">音乐与舞蹈</span></h3>
+          <p class="en">ABRSM Grade 8 piano. Gold medal in Latin dance.</p>
+          <p class="zh">英皇钢琴八级；拉丁舞金奖。</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p class="en">© 2026 Ningning Ma. Last updated October 2026.</p>
+      <p class="zh">© 2026 马宁宁。最后更新于 2026 年 10 月。</p>
+    </footer>
+
+  </main>
+</div>
+
+<script>
+  (function(){
+    var root = document.documentElement;
+    var btn = document.getElementById('lang-toggle');
+    var titles = {
+      en: 'Ningning Ma 马宁宁 | Sociology, Peking University',
+      zh: '马宁宁 Ningning Ma | 北京大学社会学系'
+    };
+    function apply(lang, updateUrl){
+      var zh = lang === 'zh';
+      root.classList.toggle('is-zh', zh);
+      root.lang = zh ? 'zh-CN' : 'en';
+      document.title = titles[lang];
+      btn.setAttribute('aria-label', zh ? 'Switch to English' : '切换到中文');
+      if (updateUrl) {
+        var u = new URL(location.href);
+        u.searchParams.set('lang', lang);
+        history.replaceState(null, '', u);
+      }
+    }
+    apply(root.classList.contains('is-zh') ? 'zh' : 'en', false);
+    btn.addEventListener('click', function(){
+      apply(root.classList.contains('is-zh') ? 'en' : 'zh', true);
+    });
+  })();
+</script>
+</body>
+</html>
